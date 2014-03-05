@@ -1,4 +1,4 @@
-Docky-Swipe-Launcher
+Docky Swipe Launcher
 ====================
 
-Public facing repository for bug and feature requests tracking.
+![alt tag](https://raw.github.com/ArnaudCourbiere/DockySwipeLauncher/master/phone.png)
