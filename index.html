@@ -51,6 +51,71 @@
       </footer>
     </div>
     <script src="javascripts/lib/scale.fix.js"></script>
+    <script>
+        var dojoConfig = { async: true };
+    </script>
+    <script src="javascript/lib/dojo.js"></script>
+    <script>
+        require(['src/util', 'dojo/on', 'dojo/dom', 'dojo/dom-geometry', 'dojo/dom-style', 'dojo/_base/fx', 'dojo/domReady!'],
+            function bootstrap (util, on, dom, domGeo, domStyle, fx) {
+                var screen = dom.byId('screen');
+                var dock = dom.byId('dock');
+                var down = false;
+                var dockGeo = domGeo.position(dock);
+                var dockCurrentWidth = dockGeo.w;
+                var initialX = 0;
+                
+                var mouseDownHandler = function (event) {
+                    down = true;
+                    initialX = event.x ? event.x : event.clientX;
+                    initialY = event.y ? event.y : event.clientY;
+                    
+                    util.cancelEvent(event);
+                };
+                
+                var mouseMoveHandler = function (event) {
+                    if (down === true) {
+                        dockCurrentWidth -= (event.x ? event.x : event.clientX) - initialX;
+                        
+                        if (dockCurrentWidth < 0) {
+                            dockCurrentWidth = 0;
+                        } else if (dockCurrentWidth > dockGeo.w) {
+                            dockCurrentWidth = dockGeo.w;
+                        }
+                        
+                        domStyle.set(dock, 'width', dockCurrentWidth + 'px');
+                        
+                        initialX = event.x ? event.x : event.clientX;
+                    }
+                    
+                    util.cancelEvent(event);
+                };
+                
+                var mouseUpHandler = function (event) {
+                    down = false;
+                    initialX = 0;
+                    var targetWidth = dockCurrentWidth > dockGeo.w / 2 ? dockGeo.w : 0;
+                    
+                    fx.animateProperty({
+                        node: 'dock',
+                        properties: {
+                            width: targetWidth
+                        },
+                        onEnd: function () {
+                            dockCurrentWidth = targetWidth;
+                        }
+                    }).play();
+                    
+                    util.cancelEvent(event);
+                };
+                
+                on(screen, 'mousedown', mouseDownHandler);
+                on(window, 'mousemove', mouseMoveHandler);
+                on(window, 'mouseup', mouseUpHandler);
+            }
+        );
+
+    </script>
     
   </body>
 </html>
