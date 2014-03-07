@@ -92,7 +92,7 @@
                         initialX = event.x ? event.x : event.clientX;
                     }
                     
-                    //util.cancelEvent(event);
+                    util.cancelEvent(event);
                 };
                 
                 var mouseUpHandler = function (event) {
@@ -110,7 +110,7 @@
                         }
                     }).play();
                     
-                    //util.cancelEvent(event);
+                    util.cancelEvent(event);
                 };
                 
                 on(screen, 'mousedown', mouseDownHandler);
