@@ -13,7 +13,7 @@
     right: 0;
     bottom: 0;
 
-    background: url('/images/Nexus5.png') no-repeat;
+    background: url('images/Nexus5.png') no-repeat;
 }
 
 #screen {
@@ -47,18 +47,18 @@
 }
 
 .gmail-item {
-    background: url('/images/gmail-icon.png') no-repeat;
+    background: url('images/gmail-icon.png') no-repeat;
 }
 
 .hangout-item {
-    background: url('/images/hangout-icon.png') no-repeat;
+    background: url('images/hangout-icon.png') no-repeat;
 }
 
 .chrome-item {
-    background: url('/images/chrome-icon.png') no-repeat;
+    background: url('images/chrome-icon.png') no-repeat;
 }
 
 .calculator-item {
-    background: url('/images/calculator-icon.png') no-repeat;
+    background: url('images/calculator-icon.png') no-repeat;
 }
 
