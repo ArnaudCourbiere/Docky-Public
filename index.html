@@ -57,7 +57,7 @@
     <script src="javascripts/lib/dojo.js"></script>
     <script>
         require(['src/util', 'dojo/on', 'dojo/dom', 'dojo/dom-geometry', 'dojo/dom-style', 'dojo/touch', 'dojo/_base/fx', 'dojo/domReady!'],
-            function bootstrap (util, on, dom, domGeo, domStyle, fx) {
+            function bootstrap (util, on, dom, domGeo, domStyle, touch, fx) {
                 var screen = dom.byId('screen');
                 var dock = dom.byId('dock');
                 var down = false;
@@ -113,9 +113,9 @@
                 on(window, 'mousemove', mouseMoveHandler);
                 on(window, 'mouseup', mouseUpHandler);
                 
-                on(screen, 'press', mouseDownHandler);
-                on(window, 'move', mouseMoveHandler);
-                on(window, 'release', mouseUpHandler);
+                on(screen, touch.press, mouseDownHandler);
+                on(window, touch.move, mouseMoveHandler);
+                on(window, touch.release, mouseUpHandler);
             }
         );
 
