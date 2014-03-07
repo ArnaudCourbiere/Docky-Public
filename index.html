@@ -74,7 +74,7 @@
                     initialX = event.x ? event.x : event.clientX;
                     initialY = event.y ? event.y : event.clientY;
                     
-                    //util.cancelEvent(event);
+                    util.cancelEvent(event);
                 };
                 
                 var mouseMoveHandler = function (event) {
@@ -92,7 +92,7 @@
                         initialX = event.x ? event.x : event.clientX;
                     }
                     
-                    util.cancelEvent(event);
+                    //util.cancelEvent(event);
                 };
                 
                 var mouseUpHandler = function (event) {
