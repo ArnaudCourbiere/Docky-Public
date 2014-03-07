@@ -56,8 +56,8 @@
     </script>
     <script src="javascripts/lib/dojo.js"></script>
     <script>
-        require(['src/util', 'dojo/on', 'dojo/dom', 'dojo/dom-geometry', 'dojo/dom-style', 'dojo/touch', 'dojo/_base/fx', 'dojo/domReady!'],
-            function bootstrap (util, on, dom, domGeo, domStyle, touch, fx) {
+        require(['src/util', 'dojo/touch', 'dojo/on', 'dojo/dom', 'dojo/dom-geometry', 'dojo/dom-style', 'dojo/_base/fx', 'dojo/domReady!'],
+            function bootstrap (util, touch, on, dom, domGeo, domStyle, fx) {
                 var screen = dom.byId('screen');
                 var dock = dom.byId('dock');
                 var down = false;
