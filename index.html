@@ -51,10 +51,14 @@
       </footer>
     </div>
     <script src="javascripts/lib/scale.fix.js"></script>
-    <script>
-        var dojoConfig = { async: true };
-    </script>
-    <script src="javascripts/lib/dojo.js"></script>
+
+    <script data-dojo-config="async: 1, dojoBlankHtmlUrl: '/path/to/blank.html',
+        packages: [{
+            name: 'src',
+            location: '/js/src'
+        }]"
+    src="//ajax.googleapis.com/ajax/libs/dojo/1.9.2/dojo/dojo.js"></script>
+
     <script>
         require(['src/util', 'dojo/touch', 'dojo/on', 'dojo/dom', 'dojo/dom-geometry', 'dojo/dom-style', 'dojo/_base/fx', 'dojo/domReady!'],
             function bootstrap (util, touch, on, dom, domGeo, domStyle, fx) {
